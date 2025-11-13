@@ -13,7 +13,7 @@ print("Iniciando a conversão de CSV para Parquet...")
 for arquivo in arquivos_csv:
     try:
         novo_nome = arquivo.replace(".csv", ".parquet")
-        df = pd.read_csv(arquivo)
+        df = pd.read_csv(arquivo,sep='|')
         df.to_parquet(novo_nome, index=False)
         print(f"Arquivo convertido com sucesso:{arquivo} -> {novo_nome}")
     except Exception as e:
